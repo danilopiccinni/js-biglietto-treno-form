@@ -76,7 +76,7 @@ else
         else 
             if (età < 18) {
     
-                prezzoScontato = prezzoSenzaSconto = (prezzoSenzaSconto / 100 * 20)
+                prezzoScontato = prezzoSenzaSconto - (prezzoSenzaSconto / 100 * 20)
     
                 prezzoScontato = prezzoScontato.toFixed(2)
     
@@ -88,7 +88,7 @@ else
             else
                 if (età > 65) {
     
-                    prezzoScontato = prezzoSenzaSconto = (prezzoSenzaSconto / 100 * 40)
+                    prezzoScontato = prezzoSenzaSconto - (prezzoSenzaSconto / 100 * 40)
     
                     prezzoScontato = prezzoScontato.toFixed(2)
     
