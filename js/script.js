@@ -36,7 +36,7 @@ bottonDati.addEventListener("click" , function () {
     chilometri = parseInt (chilometriEl.value)
     prezzoSenzaSconto = chilometri * prezzoKm
 
-    
+
     if (nome == "" || cognome == "") {
     
         alert ("Se non sai come ti chiami stai grave")
@@ -83,7 +83,7 @@ bottonDati.addEventListener("click" , function () {
                 document.getElementById("card-text-1").innerHTML = nome
                 document.getElementById("card-text-2").innerHTML = cognome
                 document.getElementById("card-text-3").innerHTML = ("Intero")
-                document.getElementById("card-text-4").innerHTML = ("Prezzo " + prezzoSenzaSconto + " Euro - Prezzo intero")
+                document.getElementById("card-text-4").innerHTML = ("Prezzo " + prezzoSenzaSconto + " Euro")
                 
                 document.getElementById("sezione-biglietto").classList.remove("d-none");
 
