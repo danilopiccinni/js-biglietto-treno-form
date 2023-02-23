@@ -15,71 +15,49 @@
 -                   ° comunichiamo all'utente il prezzo calcolato in partenza (quindi senza sconto)
 */
 
-
 let nome;
 let cognome;
 let chilometri;
-let età;
 let prezzoKm = 0.21;
 let prezzoSenzaSconto;
 let prezzoScontato;
-
-// dichiaro variabili con dati immessi dall'utente
-let chilometriEl = document.getElementById("chilometri-utente")
-let etàEl = document.getElementById("età-utente")
-let nomeEl = document.getElementById("nome")
-let cognomeEl = document.getElementById("cognome")
-
 
 let bottonDati = document.getElementById("bottone-dati")
 
 bottonDati.addEventListener("click" , function () {
 
-// test
-    console.log (chilometriEl.value)
-    console.log (etàEl.value)
-// test
+    let chilometriEl = document.getElementById("chilometri-utente")
+    let nomeEl = document.getElementById("nome")
+    let cognomeEl = document.getElementById("cognome")
+    let selezione = document.getElementById("selezione").selectedIndex
+
     nome = nomeEl.value
     cognome = cognomeEl.value
-    età = parseInt (etàEl.value)
     chilometri = parseInt (chilometriEl.value)
-
-
-// test
-    console.log (età)
-    console.log(chilometri)
-// test  
-
     prezzoSenzaSconto = chilometri * prezzoKm
 
 
-// test
-    console.log (prezzoSenzaSconto)
-// test
+    if (nome == "" || cognome == "") {
     
-if (isNaN(chilometri) && isNaN(età)) {
-
-    document.writeln ("A quanto pare ho a che fare con un asino")
-    
-    }
-
-else 
-    if (isNaN(età)) {
-    
-        document.writeln ("Se non sai indicare correttamente quanti anni hai stai messo male fraté")
+        alert ("Se non sai come ti chiami stai grave")
     
         } 
 
     else 
+        if (selezione == 0) {
+
+            alert ("A quanto pare vuoi nascondere la tua vecchiaia")
+
+        }
         if (isNaN(chilometri)) {
     
-            document.writeln ("Se non sai quanto dista la tua destinazione puoi googlare e riprovare")
+            alert ("Se non sai quanto dista la tua destinazione puoi googlare e riprovare")
     
             } 
 
         else 
-            if (età < 18) {
-    
+            if (selezione == 1) {
+
                 prezzoScontato = prezzoSenzaSconto - (prezzoSenzaSconto / 100 * 20)
     
                 prezzoScontato = prezzoScontato.toFixed(2)
@@ -88,38 +66,40 @@ else
     
                 document.getElementById("card-text-1").innerHTML = nome
                 document.getElementById("card-text-2").innerHTML = cognome
-                document.getElementById("card-text-3").innerHTML = (età + " anni")
+                document.getElementById("card-text-3").innerHTML = ("Minorenni")
                 document.getElementById("card-text-4").innerHTML = ("Prezzo " + prezzoScontato + " Euro - Riduzione 20%")
 
                 } 
 
             else
-                if (età > 65) {
-    
-                    prezzoScontato = prezzoSenzaSconto - (prezzoSenzaSconto / 100 * 40)
-    
-                    prezzoScontato = prezzoScontato.toFixed(2)
-    
-                    console.log ("il prezzo del biglietto é " + prezzoScontato + "€")
+                if (selezione == 2) {
 
-                    document.getElementById("card-text-1").innerHTML = nome
-                    document.getElementById("card-text-2").innerHTML = cognome
-                    document.getElementById("card-text-3").innerHTML = (età + " anni")
-                    document.getElementById("card-text-4").innerHTML = ("Prezzo " + prezzoScontato + " Euro - Riduzione 40%")
-    
-                    } 
+                prezzoSenzaSconto = prezzoSenzaSconto.toFixed(2)
+
+                console.log ("il prezzo del biglietto é " + prezzoSenzaSconto + "€")
+
+
+                document.getElementById("card-text-1").innerHTML = nome
+                document.getElementById("card-text-2").innerHTML = cognome
+                document.getElementById("card-text-3").innerHTML = ("Intero")
+                document.getElementById("card-text-4").innerHTML = ("Prezzo " + prezzoSenzaSconto + " Euro - Prezzo intero")
+                }
+
                     
-                else {
+            else
+                if (selezione == 3) {
 
-                    prezzoSenzaSconto = prezzoSenzaSconto.toFixed(2)
+                prezzoScontato = prezzoSenzaSconto - (prezzoSenzaSconto / 100 * 40)
+        
+                prezzoScontato = prezzoScontato.toFixed(2)
+        
+                console.log ("il prezzo del biglietto é " + prezzoScontato + "€")
 
-                    console.log ("il prezzo del biglietto é " + prezzoSenzaSconto + "€")
-
-
-                    document.getElementById("card-text-1").innerHTML = nome
-                    document.getElementById("card-text-2").innerHTML = cognome
-                    document.getElementById("card-text-3").innerHTML = (età + " anni")
-                    document.getElementById("card-text-4").innerHTML = ("Prezzo " + prezzoSenzaSconto + " Euro - Prezzo intero")
-                    }
-
+                document.getElementById("card-text-1").innerHTML = nome
+                document.getElementById("card-text-2").innerHTML = cognome
+                document.getElementById("card-text-3").innerHTML = ("Anziano")
+                document.getElementById("card-text-4").innerHTML = ("Prezzo " + prezzoScontato + " Euro - Riduzione 40%")
+        
+                } 
+ 
 })
