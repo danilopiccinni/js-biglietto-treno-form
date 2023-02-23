@@ -1,0 +1,12 @@
+body {
+    background-image: url(../img/asd.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+
+}
+.__card {
+    background-image: url(../img/asd.webp);
+    background-size: 110%;
+}
