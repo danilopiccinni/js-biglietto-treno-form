@@ -36,7 +36,7 @@ bottonDati.addEventListener("click" , function () {
     chilometri = parseInt (chilometriEl.value)
     prezzoSenzaSconto = chilometri * prezzoKm
 
-
+    
     if (nome == "" || cognome == "") {
     
         alert ("Se non sai come ti chiami stai grave")
@@ -59,7 +59,6 @@ bottonDati.addEventListener("click" , function () {
             if (selezione == 1) {
 
                 prezzoScontato = prezzoSenzaSconto - (prezzoSenzaSconto / 100 * 20)
-    
                 prezzoScontato = prezzoScontato.toFixed(2)
     
                 console.log ("il prezzo del biglietto é " + prezzoScontato + "€")
@@ -68,6 +67,8 @@ bottonDati.addEventListener("click" , function () {
                 document.getElementById("card-text-2").innerHTML = cognome
                 document.getElementById("card-text-3").innerHTML = ("Minorenni")
                 document.getElementById("card-text-4").innerHTML = ("Prezzo " + prezzoScontato + " Euro - Riduzione 20%")
+             
+                document.getElementById("sezione-biglietto").classList.remove("d-none");
 
                 } 
 
@@ -83,14 +84,15 @@ bottonDati.addEventListener("click" , function () {
                 document.getElementById("card-text-2").innerHTML = cognome
                 document.getElementById("card-text-3").innerHTML = ("Intero")
                 document.getElementById("card-text-4").innerHTML = ("Prezzo " + prezzoSenzaSconto + " Euro - Prezzo intero")
+                
+                document.getElementById("sezione-biglietto").classList.remove("d-none");
+
                 }
 
-                    
             else
                 if (selezione == 3) {
 
                 prezzoScontato = prezzoSenzaSconto - (prezzoSenzaSconto / 100 * 40)
-        
                 prezzoScontato = prezzoScontato.toFixed(2)
         
                 console.log ("il prezzo del biglietto é " + prezzoScontato + "€")
@@ -99,7 +101,11 @@ bottonDati.addEventListener("click" , function () {
                 document.getElementById("card-text-2").innerHTML = cognome
                 document.getElementById("card-text-3").innerHTML = ("Anziano")
                 document.getElementById("card-text-4").innerHTML = ("Prezzo " + prezzoScontato + " Euro - Riduzione 40%")
+                
+                document.getElementById("sezione-biglietto").classList.remove("d-none");
         
                 } 
+
+
  
 })
